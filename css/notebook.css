@@ -1,0 +1,91 @@
+/*###########################################################################*/
+/*      originally created by Andreas Storm (http://andreasstorm.com/)       */
+/*                      modified by Simon Rehwald                            */
+/*###########################################################################*/
+.notebook{
+    margin: 0 auto;
+    margin-top:2em;
+    width: 98%;
+}
+
+.notebook .screen {
+    background: #fcfcfc;
+    margin: 0 auto;
+    border-radius: 15px 15px 0 0;
+    height: 57vw;
+    width: 80%;
+    padding: 3vw;
+}
+
+.notebook .screen .background {
+    background-color:#805606;
+    height: 57.6vw
+}
+
+.notebook .keyboard {
+    background: #f4f5f7;
+    margin: 0 auto;
+    border-radius: 5px 5px 25px 25px;
+    width: 100%;
+    height: 3.5vw;
+}
+
+.notebook .keyboard:after {
+    content: "";
+    position: absolute;
+    background: #d8dbe1;
+    height: 4px;
+    width: 10vw;
+    margin: 0px 0px 0px 45vw;
+    border-radius: 0 0 8px 8px;
+}
+
+@media screen and (min-width: 35.5em) {
+    .notebook .screen{
+        border-radius: 15px 15px 0 0;
+        height: 299.4889881px;
+        width: 454.4px;
+        padding:12px;
+    }
+    
+    .notebook .screen .background {
+        height:299px;
+    }
+
+    .notebook .keyboard {
+      border-radius: 5px 5px 25px 25px;
+      height: 16px;
+      width: 568px;
+    }
+    .notebook .keyboard:after {
+      height: 4px;
+      width: 60px;
+      margin: 0px 0px 0px 252.2px;
+      border-radius: 0 0 8px 8px;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .notebook .screen{
+        border-radius: 15px 15px 0 0;
+        height: 404.9428571px;
+        width: 614.4px;
+        padding:14px;
+    }
+    
+    .notebook .screen .background {
+        height:400px;
+    }
+
+    .notebook .keyboard {
+      border-radius: 5px 5px 25px 25px;
+      height: 18px;
+      width: 768px;
+    }
+    .notebook .keyboard:after {
+      height: 4px;
+      width: 80px;
+      margin: 0px 0px 0px 347.2px;
+      border-radius: 0 0 8px 8px;
+    }
+}

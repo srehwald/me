@@ -1,0 +1,37 @@
+box: debian
+build:
+  steps:
+    - script:
+        name: echo
+        code: |
+          echo "Sucessful build."
+deploy:
+  steps:
+    - install-packages:
+        packages: openssh-client
+    - add-to-known_hosts:
+        hostname: $HOSTNAME
+        fingerprint: $FINGERPRINT
+    - mktemp:
+        envvar: PRIVATEKEY_PATH
+    - create-file:
+        name: write key
+        filename: $PRIVATEKEY_PATH
+        content: $SSH_KEY_PRIVATE
+        overwrite: true
+        hide-from-log: true 
+    - script:
+        name: package content
+        code: |
+          mkdir site
+          mkdir site/css
+          cp index.html site/
+          cp -r css/ site/css/
+    - script:
+        name: deploy website
+        code: |
+          pwd
+          ls -la
+          cd site
+          scp -r -i $PRIVATEKEY_PATH . $SERVER_PATH
+

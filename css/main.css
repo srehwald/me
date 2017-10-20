@@ -24,9 +24,3 @@ div .aboutme {
     font-family: Consolas, monaco, monospace;
     color:white;
 }
-
-a .fa, a:link .fa, a:visited .fa, a:hover .fa, a:focus .fa, a:active .fa {
-    text-decoration: none;
-    color: white;
-}
-

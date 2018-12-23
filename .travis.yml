@@ -8,13 +8,13 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
+  - ssh-keyscan $KNOWN_HOST >>~/.ssh/known_hosts
 
 deploy:
   provider: script
   script:
     - mkdir -p dist/css
     - cp index.html dist/ && cp -R css/ dist/css
-    - ssh-keyscan $KNOWN_HOST >>~/.ssh/known_hosts
     - rsync --dry-run -az --force --delete --progress -e "ssh -p22" ./dist/ $DEPLOY
   skip_cleanup: true
   on:

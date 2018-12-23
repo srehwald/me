@@ -1,4 +1,2 @@
-_builds/
-_cache/
-_projects/
-_steps/
+dist/
+deploy_key

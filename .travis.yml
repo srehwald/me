@@ -12,10 +12,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script:
-    - mkdir -p dist/css
-    - cp index.html dist/ && cp -r css/ dist/css
-    # - rsync --dry-run -az --force --delete --progress -e "ssh -p22" ./dist/ $DEPLOY
+  script: sh ./deploy.sh
   skip_cleanup: true
   on:
     branch: feature/travis

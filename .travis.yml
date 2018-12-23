@@ -18,6 +18,7 @@ deploy:
   script:
     - mkdir -p dist/css
     - cp index.html dist/ && cp -R css/ dist/css
+    - ls -l
     - rsync --dry-run -az --force --delete --progress -e "ssh -p22" ./dist/ $DEPLOY
   on:
     branch: feature/travis

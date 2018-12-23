@@ -1,3 +1,13 @@
+before_install:
+  - openssl aes-256-cbc -K $encrypted_4db0acf32f70_key -iv $encrypted_4db0acf32f70_iv
+    -in deploy_key.enc -out ./deploy_key -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 ./deploy_key
+  - ssh-add ./deploy_key
+  
+addons:
+  ssh_known_hosts: $KNOWN_HOST
+
 install: true
 
 script: true
@@ -8,4 +18,6 @@ deploy:
   script:
     - mkdir -p dist/css
     - cp index.html dist/ && cp -R css/ dist/css
-    # - rsync -az --force --delete --progress -e "ssh -p22" ./dist/ $DEPLOY
+    - rsync -az --force --delete --progress -e --dry-run "ssh -p22" ./dist/ $DEPLOY
+  on:
+    branch: feature/travis
